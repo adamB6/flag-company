@@ -1,0 +1,195 @@
+p {
+  color: #314455;
+}
+h1 {
+  color: white;
+}
+.home-image {
+  width: 300px;
+  height: 300px;
+}
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+.image-links {
+  height: 40%;
+  width: 40%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  border: 1px solid black;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 1);
+  background-color: #9E5A63;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1; 
+  
+}
+
+main.hidden {
+  opacity: 0;
+}
+
+/***** Cool Button *****/
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  width: 200vh;
+  gap: 15px;
+}
+button {
+  width: 10em;
+  position: relative;
+  height: 3.5em;
+  border: 3px ridge #314455;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 5vh;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #9E5A63;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #9E5A63;
+  transition: 0.5s;
+}
+
+button:hover::before, button:hover::after {
+  transform: scale(0)
+}
+
+button:hover {
+  box-shadow: inset 0px 0px 25px #314455;
+}
+
+/***** Prototype 1 CSS *****/
+.pro1-flag-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  height: 50%;
+  overflow-y: scroll;
+  margin-bottom: 10vh;
+}
+
+.flag {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.flag:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.flag img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.flag p {
+  margin-top: 10px;
+  color: #333;
+}
+
+/***** Prototype 2 css *****/
+.pro2-container {
+  display: flex;
+  align-items: center;
+}
+.form-container {
+  border: outset black;
+  height: 23vh;
+  padding: 3.5vh;
+  gap: 5vh;
+  margin-bottom: 5vh;
+}
+.pro2-flag-container {
+  display: flex; /* Ensures children (like your image) are flex items */
+  gap: 5vh;
+  padding: 2.5vh;
+  height: 25vh; /* Adjust this to your desired height */
+  min-width: 30vh;
+  margin-bottom: 5vh;
+  overflow: hidden; /* Ensures that the content doesn't spill out */
+  border: outset black;
+}
+.pro2-flag-container img {
+  height: 100%; /* Makes the image take the full height of the container */
+  width: auto; /* Keeps the image aspect ratio */
+  object-fit: cover; /* Ensures the image covers the container area */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh; /* space between select and button */
+}
+
+/***** Prototype 3 css *****/
+.flagForm {
+  border: solid black;
+  margin-bottom: 5vh;
+}
+.flagContainer {
+  border: solid black;
+  height: 25vh;
+  min-width: 30vh;
+}
+.flagContainer img{
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+
+
+
+/*
+#314455
+#644E5B
+#9E5A63
+#C96567
+#97AABD
+*/

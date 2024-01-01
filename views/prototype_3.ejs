@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <main>
+    <head>
+      <title><%= title %></title>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="../javascripts/page-transitions.js"></script>
+    </head>
+    <body>
+      <h1><%= title %></h1>
+      <p>A visual display of all 50 U.S. State flags plus Washington D.C.<br>
+         using a form that allows you to generate a flag randomly.</p>
+
+        <!-- Container for displaying the random flag -->
+        <div class="flagContainer"></div>
+      <!-- Form to trigger random flag display -->
+      <form class="flagForm">
+          <input type="submit" value="Get random flag">
+      </form>
+
+        <!-- Link back to the index file -->
+      <button onclick="window.location.href='/';">
+        <span>Back to Home</span>
+      </button>
+
+        <!-- JavaScript for handling the random flag logic -->
+      <script>
+          var states = <%- JSON.stringify(states) %>;
+
+        document.addEventListener('DOMContentLoaded', function () {
+          var states = <%- JSON.stringify(states) %>;
+
+          var flagForm = document.querySelector('.flagForm');
+          var flagContainer = document.querySelector('.flagContainer');
+
+          if (flagForm && flagContainer) {
+            flagForm.addEventListener('submit', function (e) {
+              e.preventDefault();
+              var randomState = states[Math.floor(Math.random() * states.length)];
+              if (randomState && randomState.flagUrl) {
+                flagContainer.innerHTML = '<img src="' + randomState.flagUrl + '" alt="' + randomState.name + ' Flag">';
+              } else {
+                console.error('Invalid state data or flag URL missing.');
+              }
+            });
+          } else {
+            console.error('Could not find flagForm or flagContainer elements.');
+          }
+        });
+      </script>
+
+    </body>
+  </main>
+</html>

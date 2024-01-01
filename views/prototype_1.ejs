@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <main>
+    <head>
+      <title><%= title %></title>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="../javascripts/page-transitions.js"></script>
+      <!-- Add additional styles or links to stylesheets -->
+    </head>
+    <body>
+      <h1><%= title %></h1>
+      <p>A visual display of all 50 U.S. State flags plus Washington D.C.<br>
+      using just a scrollable, single column to display all flags at once.</p>
+    
+      <!-- Container for the flags -->
+      <div class="pro1-flag-container">
+        <% states.forEach(function(state) { %>
+          <div class="flag">
+            <img src="<%= state.flagUrl %>" alt="Flag of <%= state.name %>">
+            <p><%= state.name %></p>
+          </div>
+        <% }); %>
+      </div>
+          <button onclick="window.location.href='/'">
+            <span>Back to Home</span>
+          </button>
+    </body>
+  </main>
+</html>

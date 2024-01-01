@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <main>
+    <head>
+      <title><%= title %></title>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="../javascripts/page-transitions.js"></script>
+    </head>
+    <body>
+      <h1><%= title %></h1>
+      <p>A visual display of all 50 U.S. State flags plus Washington D.C.<br>
+         using two columns and a form that uses SELECT. Displays one flag<br> at a time.</p>
+
+      <div class="pro2-container">
+        <div class="form-container">
+          <!-- Left column: Form with SELECT -->
+          <form method="get" action="/prototype_2" id="flagForm">
+            <select name="selectedState" id="selectedState">
+              <% states.forEach(function(state) { %>
+                <option value="<%= state.name %>" <%= selectedState === state.name ? 'selected' : '' %>><%= state.name %></option>
+              <% }); %>
+            </select>
+            <button type="submit">Show Flag</button>
+          </form>
+        </div>
+
+        <!-- Right column: Flag display -->
+        <div class="pro2-flag-container">
+          <% if(selectedState) { %>
+            <img src="<%= states.find(state => state.name === selectedState).flagUrl %>" alt="Flag of <%= selectedState %>">
+          <% } %>
+        </div>
+      </div>
+
+      <button onclick="window.location.href='/';">
+        <span>Back to Home</span>
+      </button>
+
+      <script>
+        var states = <%- JSON.stringify(states) %>;
+
+        document.addEventListener('DOMContentLoaded', function () {
+          var flagForm = document.getElementById('flagForm');
+          var flagContainer = document.querySelector('.pro2-flag-container');
+
+          if (flagForm && flagContainer) {
+            flagForm.addEventListener('submit', function (e) {
+              e.preventDefault(); // Prevent the default form submission behavior
+
+              var selectedState = document.getElementById('selectedState').value;
+              if (selectedState) {
+                var state = states.find(state => state.name === selectedState);
+                if (state) {
+                  flagContainer.innerHTML = '<img src="' + state.flagUrl + '" alt="Flag of ' + selectedState + '">';
+                } else {
+                  console.error('Selected state not found in the data.');
+                }
+              } else {
+                console.error('No state selected.');
+              }
+            });
+          } else {
+            console.error('Could not find flagForm or flagContainer elements.');
+          }
+        });
+      </script>
+    </body>
+  </main>
+</html>
