@@ -1,0 +1,1 @@
+These are prototypes for a flag selling company. The project is an example of utilizing multiple cloud services. In this case, the project is hosted on Replit, but the flag images are stored on firebase. The URL is https://flagcompany.asbotens.repl.co/
